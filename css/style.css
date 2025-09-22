@@ -4,13 +4,210 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Rubik:500,700,900&display=swap");
 
+/* =================================
+   Responsive Auto-Scaling & Viewport
+   ================================= */
+
+/* Base responsive scaling */
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Auto-scaling based on screen size */
+@media screen and (min-width: 1921px) {
+  html {
+    font-size: 18px;
+  }
+  .container {
+    max-width: 1800px;
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+/* Container auto-scaling */
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Main content area responsive scaling */
+.main-content {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Sidebar responsive scaling */
+.aside {
+  width: 270px;
+  min-width: 270px;
+  max-width: 270px;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 1199px) {
+  .aside {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    position: fixed;
+    left: -100%;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .aside.open {
+    left: 0;
+  }
+
+  .main-content {
+    width: 100%;
+    left: 0;
+  }
+}
+
+/* Section responsive scaling */
+.section {
+  width: calc(100% - 270px);
+  left: 270px;
+  max-width: calc(100vw - 270px);
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1199px) {
+  .section {
+    width: 100%;
+    left: 0;
+    max-width: 100vw;
+  }
+}
+
+/* Additional responsive improvements */
+@media screen and (max-width: 1600px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 5px;
+  }
+}
+
+/* Prevent horizontal scroll */
+* {
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better touch targets for mobile */
+@media screen and (max-width: 768px) {
+  .btn,
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 /* General Style */
+/* Mobile Menu Toggle Button */
+.nav-toggler {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+  background: #ec1839;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.nav-toggler:hover {
+  background: #d4152e;
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 1199px) {
+  .nav-toggler {
+    display: block;
+  }
+}
+
 body {
   margin: 0;
   line-height: 1.5;
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
+  overflow-x: hidden;
 }
 
 * {
