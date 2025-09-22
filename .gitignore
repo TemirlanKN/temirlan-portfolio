@@ -73,3 +73,6 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# PDF files (resumes and documents)
+*.pdf
